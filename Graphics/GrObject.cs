@@ -1,10 +1,18 @@
 namespace Graphics
 {
-    internal class GrObject
+    abstract class GraphObject
     {
-       public void GraphObject(Frame frame)
+        Frame frame;
+        public GraphObject(Frame frame)
         {
+            this.frame = frame;
+        }
 
+        public abstract void Draw(Painter painter);
+
+        public Frame Frame 
+        {
+            get { return frame; }
         }
 
 

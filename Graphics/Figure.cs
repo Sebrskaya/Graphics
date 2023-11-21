@@ -1,17 +1,18 @@
 namespace Graphics
 {
-    internal static class Program
+    abstract class Figure: GraphObject
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        Properties Properties { get; set; }
+        public Figure(Frame frame, Properties properties) : base(frame)
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            Properties= properties;
         }
+        public override void Draw(Painter painter)
+        {
+            Properties.Apply(painter);
+            DrawGeometry(painter);
+        }
+
+        public abstract void DrawGeometry(Painter painter);
     }
 }

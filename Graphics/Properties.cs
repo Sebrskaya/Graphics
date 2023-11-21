@@ -1,17 +1,14 @@
 namespace Graphics
 {
-    internal static class Program
+     class Properties: List<SetOfProperties>
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        
+        public void Apply(Painter painter)
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new Form1());
+            for (int i = 0; i < this.Count; i++)
+            {
+                this[i].Apply(painter);
+            }
         }
     }
 }
